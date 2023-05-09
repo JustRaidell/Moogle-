@@ -1,0 +1,36 @@
+/home/migue/Descargas/moogle-main/MoogleEngine/bin/Debug/net7.0/MoogleEngine.deps.json
+/home/migue/Descargas/moogle-main/MoogleEngine/bin/Debug/net7.0/MoogleEngine.dll
+/home/migue/Descargas/moogle-main/MoogleEngine/bin/Debug/net7.0/MoogleEngine.pdb
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.csproj.AssemblyReference.cache
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.GeneratedMSBuildEditorConfig.editorconfig
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.AssemblyInfoInputs.cache
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.AssemblyInfo.cs
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.csproj.CoreCompileInputs.cache
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.dll
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/refint/MoogleEngine.dll
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.pdb
+/home/migue/Descargas/moogle-main/MoogleEngine/obj/Debug/net7.0/ref/MoogleEngine.dll
+/home/migue/Moogle test/moogle-main/MoogleEngine/bin/Debug/net7.0/MoogleEngine.deps.json
+/home/migue/Moogle test/moogle-main/MoogleEngine/bin/Debug/net7.0/MoogleEngine.dll
+/home/migue/Moogle test/moogle-main/MoogleEngine/bin/Debug/net7.0/MoogleEngine.pdb
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.csproj.AssemblyReference.cache
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.GeneratedMSBuildEditorConfig.editorconfig
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.AssemblyInfoInputs.cache
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.AssemblyInfo.cs
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.csproj.CoreCompileInputs.cache
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.dll
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/refint/MoogleEngine.dll
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/MoogleEngine.pdb
+/home/migue/Moogle test/moogle-main/MoogleEngine/obj/Debug/net7.0/ref/MoogleEngine.dll
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\bin\Debug\net7.0\MoogleEngine.deps.json
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\bin\Debug\net7.0\MoogleEngine.dll
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\bin\Debug\net7.0\MoogleEngine.pdb
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\MoogleEngine.csproj.AssemblyReference.cache
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\MoogleEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\MoogleEngine.AssemblyInfoInputs.cache
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\MoogleEngine.AssemblyInfo.cs
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\MoogleEngine.csproj.CoreCompileInputs.cache
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\MoogleEngine.dll
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\refint\MoogleEngine.dll
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\MoogleEngine.pdb
+C:\Users\Raide\Documents\Moogle test\moogle-main\MoogleEngine\obj\Debug\net7.0\ref\MoogleEngine.dll
