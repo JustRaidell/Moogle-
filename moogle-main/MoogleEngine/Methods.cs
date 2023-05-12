@@ -2,8 +2,10 @@ namespace MoogleEngine;
 using System.IO;
 using System.Text.RegularExpressions;
 
+//Clase que contiene los metodos necesarios para que funcione Moogle.cs
 static class Methods
 {
+    //Funcion que lee los documentos de una carpeta y llena un array de AuxItems con su respectivo Titulo y Contenido
     public static AuxItem[] ReadFiles()
     {
         string[] files = Directory.GetFiles("../Content", "*.txt*");
@@ -24,12 +26,14 @@ static class Methods
         return items;
     }
 
+    //Funcion que trunca por un numero dado de lugares despues de la coma un double introducido
     private static double Truncate(this double value, int decimales)
     {
         double temp = Math.Pow(10, decimales);
         return (Math.Truncate(value * temp) / temp);
     }
 
+    //Funcion que toma como parametro un texto y lo devuelve puramente en palabras, sin signos de puntuacion ni saltos de linea
     public static string Normalize(string text)
     {
         //El ultimo caracter \n es para quitar los saltos de linea
@@ -39,6 +43,7 @@ static class Methods
         return text;
     }
 
+    //Funcion que crea mi diccionario (universo de palabras) y mi matriz de TF*IDF
     public static Tuple<Dictionary<string, int>, List<List<double>>> Initialize(int cant_palabras, Dictionary<string, int> universo, List<List<double>> vocabulario, AuxItem[] items)
     {
         double[] init = new double[0];
@@ -67,10 +72,12 @@ static class Methods
         return Tuple.Create(universo, vocabulario);
     }
 
+    //Metodo que Calcula el TF*IDF de un vector. Esto es la relevancia de cada palabra que forman al vector
     public static List<double> TF_IDF(string Text, Dictionary<string, int> indexer, List<double> vector, double[] idf)
     {
         vector = TF(Text, indexer, vector);
 
+        //Aqui multiplica el TF * el IDF previamente calculado
         for (int i = 0; i < vector.Count; i++)
         {
             vector[i] = vector[i] * idf[i];
@@ -79,17 +86,19 @@ static class Methods
         return vector;
     }
 
+    //Metodo privado que calcula solo el TF. Que cantidad de veces sale cada palabra en cada documento
     private static List<double> TF(string text, Dictionary<string, int> indexer, List<double> vector)
     {
         string[] word_list = text.Split(" ");
         for (int i = 0; i < word_list.Length; i++)
         {
-            if (word_list[i] == String.Empty && !indexer.ContainsKey(word_list[i])) continue;
+            if (word_list[i] == String.Empty || !indexer.ContainsKey(word_list[i])) continue;
             vector[indexer[word_list[i]]]++;
         }
         return vector;
     }
 
+    //Metodo que calcula el IDF de cada palabra. En cuantos documentos se repite cada palabra.
     public static double[] IDF(List<List<double>> vocabulario, Dictionary<string, int> universo, AuxItem[] items)
     {
         double[] doc_frec = new double[vocabulario[0].Count];
@@ -112,6 +121,7 @@ static class Methods
         return doc_frec;
     }
 
+    //Metodo que calcula la Similitud de Cosenos entre mi query y un documento. Devuelve que tan parecidos son estos documentos. Esta es la variable score
     public static double CosSimilarity(List<double> vector1, List<double> vector2)
     {
         double result = Vector_Multiply(vector1, vector2);
@@ -120,6 +130,7 @@ static class Methods
         return result;
     }
 
+    //Este Metodo multiplica dos vectores
     private static double Vector_Multiply(List<double> vector1, List<double> vector2)
     {
         double result = 0;
@@ -130,6 +141,7 @@ static class Methods
         return result;
     }
 
+    //Metodo que calcula la multiplicacion de las magnitudes de dos vectores. Esto es la raiz cuadrada de la sumatoria de los cuadrados de sus terminos
     private static double Magnitude(List<double> vector1, List<double> vector2)
     {
         double a = 0;
@@ -142,4 +154,26 @@ static class Methods
 
         return (Math.Sqrt(a) * Math.Sqrt(b)) + 0.1;
     }
+
+    /*public static double Helejnipe(string[] a, Dictionary<string, int> indexer, double[] idf, List<double> query)
+    {
+        List<string> oraciones;
+        List<double> aux = new List<double>();
+        
+
+        oraciones = a.ToList();
+
+        for (int i = 0; i < oraciones.Count; i++)
+        {
+            oraciones[i] = Normalize(oraciones[i]);
+        }
+
+        for (int i = 0; i < oraciones.Count; i++)
+        {
+            aux = TF_IDF(oraciones[i],indexer,aux,idf);
+        }
+
+        double res = CosSimilarity(aux,query);
+        return res;
+    }*/
 }
