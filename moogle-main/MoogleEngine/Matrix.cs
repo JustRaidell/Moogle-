@@ -1,11 +1,13 @@
 namespace MoogleEngine;
 
+//Clase que crea matrices personalizadas y hace operaciones con ellas. No fue necesario implementarla en el proyecto (F por las matrices)
 public class Matrix
 {
     private readonly int rows;
     private readonly int cols;
     private readonly double[,] data;
 
+    //Constructor. Crea solo por filas y columnas
     public Matrix(int rows, int cols)
     {
         this.rows = rows;
@@ -13,6 +15,7 @@ public class Matrix
         this.data = new double[rows, cols];
     }
 
+    //Otro constructor. Toma cantidad de filas, cantidad de columnas, y valores en cada posicion de la matriz
     public Matrix(double[,] data)
     {
         this.rows = data.GetLength(0);
@@ -20,6 +23,7 @@ public class Matrix
         this.data = data;
     }
 
+    //Metodo que suma dos matrices
     public Matrix Add(Matrix other)
     {
         if (this.rows != other.rows || this.cols != other.cols)
@@ -38,6 +42,7 @@ public class Matrix
         return result;
     }
 
+    //Metodo que multiplica dos matrices
     public Matrix Multiply(Matrix other)
     {
         if (this.cols != other.rows)
@@ -61,6 +66,7 @@ public class Matrix
         return result;
     }
 
+    //Metodo que calcula el determinante de una matriz
     public double Determinant()
     {
         if (this.rows != this.cols)
