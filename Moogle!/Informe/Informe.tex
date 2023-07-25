@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\begin{document}
+
+\textbf {Moogle!} es un programa que hace b\'usquedas en tiempo real sobre una base de datos de documentos.
+En principio necesita una base de datos de archivos en formato .txt ubicados en la carpeta Content.
+Cuenta adem\'as del archivo principal Moogle.cs con 5 archivos de extensi\'on .cs necesarios (bueno 4 de ellos necesarios para funcionar)
+que son:
+\begin{itemize}
+    \item AuxItems, una clase que guarda el texto y t\'itulo de un documento.
+    \item Methods, una clase que tiene todos los metodos que son invocados en el programa.
+    \item SearchItem, una clase que guarda el t\'itulo, snippet y score de cada documento al hacer la query
+    \item SearchResult, que como su nombre indica devuelve el resultado de la b\'usqueda.
+    \item Matrix, una clase que ayuda en el trabajo con operaciones con matrices, pero que no fue necesario usar en el funcionamiento del proyecto.
+\end{itemize}
+
+Lo primero que hace el proyecto es hacer un arreglo de AuxItems donde en cada posici\'on hay un documento de la
+carpeta Content.
+Luego duplica ese arreglo pero con los documentos normalizados, esto es, los mismos textos de los documentos,
+pero sin signos de puntuaci\'on, may\'usculas ni saltos de l\'inea.
+Ahora creo un diccionario y voy recorriendo los textos de mis documentos. Cada vez que encuentro una palabra
+"nueva" para mi diccionario la agrego con un n\'umero natural que significa que n\'umero de palabra es. Paralelo a
+esto voy creando una matriz de (palabras ; documentos). Al terminar esta parte del c\'odigo me queda un diccionario
+en el que a todas las palabras presentes se les asigna un n\'umero, y una matriz de tama\~no [cant de palabras ; cant de
+documentos]
+
+\begin {center}
+\begin{tabular}{c|cccc}
+     & 1\tiny er \small documento & 2\tiny do \small documento & ... & n-\'esimo documento \\
+     \hline
+     1\tiny ra \small palabra &  &  &  &  \\
+     2\tiny da \small palabra &  &  &  &  \\
+     3\tiny ra \small palabra &  &  &  &  \\
+     ... &  &  &  &  \\
+     m-\'esima palabra &  &  &  &  \\
+\end{tabular}
+\end {center}
+
+Aqu\'i empieza la parte algebraica, pues por cada documento voy calculando la importancia que tiene cada una de
+las palabras que lo forman, a trav\'es de un m\'etodo llamado $TF*IDF$. Este m\'etodo toma la cantidad de veces 
+que se repite una palabra en un documento (Term Frequency o \emph{TF}) y lo multiplica por la "rareza" de la palabra 
+(Inverse Document Frequency o \emph{IDF}) para as\'i obtener la relevancia de esa palabra para cada documento. En este 
+punto ya tengo el IDF de cada palabra de mi universo ya calculada (ya que este no var\'ia) y solo llamo al m\'etodo privado 
+TF que calcula el TF de cada una de las palabras de un documento. Al multiplicarlas por su respectivo IDF
+me queda la importancia de esas palabras para ese documento. Luego le asigno ese valor a su posici\'on correspondiente 
+en la matriz. Al acabar me queda la matriz con el $TF*IDF$ de cada palabra de mi universo de palabras en cada 
+documento (el equivalente a la importancia de cada palabra para cada documento).
+
+En este punto del programa es que valoro la query. Lo primero que hago es normalizarla. Luego le calculo el
+$TF*IDF$ para ver qu\'e tan relevante es para mi universo. En caso de que no tenga palabras en com\'un con mis
+documentos su relevancia va a ser obviamente 0, y a partir de ah\'i se incrementar\'a en dependencia.
+Una vez que tengo el $TF*IDF$ de la query puedo aplicar una f\'ormula llamada "Similitud Coseno" que me dice el
+\'angulo de desviaci\'on de un vector respecto a otro. Si ese coseno da 0 entonces ambos vectores apuntan al mismo
+lugar.
+
+Aplicando esto al proyecto. Si trato los documentos como un conjunto de vectores y la query como otro, la similitud
+de coseno me dir\'a qu\'e tan parecidos son. Dicho y hecho: creo un m\'etodo que calcula la similitud coseno entre dos
+vectores y lo llamo tantas veces como documentos tenga. Me queda un array de valores, los scores: a mayor score,
+m\'as parecido es ese documento a la query.
+
+A continuaci\'on saco los Snippet de cada documento. Esto es un fragmento de documento que coincida
+parcialmente con la b\'usqueda. Para hacer esto simplamente separo los textos de los documentos por oraciones y
+voy guardando en un Array la que mayor cantidad de coincidencias tenga con la query por cada documento.
+
+
+Para terminar ordeno con un Array de Tuplas los documentos por valor de score y luego creo un array de SearchItem del
+mismo tama\~no que la cantidad de documentos con score distinto de 0. En cada posici\'on guardo el t\'itulo, Snippet
+sin normalizar y score del documento en orden de importancia descendente. Como resultado todos los documentos
+mostrados tienen aunque sea un m\'inimo de coincidencia con la b\'usqueda.
+
+Al final SearchResult con mi array de SearchItem como argumento imprime en pantalla el T\'itulo y el fragmento de
+texto de los documentos ordenados de m\'as a menos por valor de score.
+
+\end{document}

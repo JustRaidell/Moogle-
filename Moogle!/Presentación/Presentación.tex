@@ -1,0 +1,56 @@
+\documentclass{slides} %What if?
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\title {\textbf {Moogle!}}
+\author {Raidel M. Cabellud Lizaso}
+\date {23 de julio, 2023}
+\maketitle
+
+
+\begin {center}
+\scalebox{.60}{
+\begin{tabular}{c|cccc}
+     & 1\tiny er \small documento & 2\tiny do \small documento & ... & n-\'esimo documento \\
+     \hline
+     1\tiny ra \small palabra &  &  &  &  \\
+     2\tiny da \small palabra &  &  &  &  \\
+     3\tiny ra \small palabra &  &  &  &  \\
+     ... &  &  &  &  \\
+     m-\'esima palabra &  &  &  &  \\
+\end{tabular}
+}
+
+\vspace{1cm}
+
+Tabla que ilustra la matriz de $TF*IDF$
+
+\end {center}
+
+\newpage
+
+\begin{flushleft}
+     $$TF = \texttt{cantidad de veces que se repite la palabra}$$  
+     
+     $$IDF = \log{\frac{\small\texttt{cantidad total de documentos}}{\small\texttt{cantidad de documentos que contienen la palabra}}}$$
+\end{flushleft}
+
+
+\newpage
+
+%formula de la similitud de cosenos
+
+La similitud de cosenos responde a la siguiente f\'ormula
+
+\begin{equation}
+     \small
+     Cs = \frac{a_1b_1+a_2b_2+a_3b_3+...+a_nb_n}{\sqrt{a_1^2+a_2^2+a_3^2+...+a_n^2}*\sqrt{b_1^2+b_2^2+b_3^2+...+b_n^2}}     
+\end{equation}
+
+donde $a_1, a_2, a_3,...,a_n$ son las componentes del vector a y an\'alogamente con las componentes del vector b
+
+
+
+\end{document}
